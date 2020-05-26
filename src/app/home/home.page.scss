@@ -7,10 +7,43 @@
   top: 50%;
   transform: translateY(-50%);
 }
-
+.logo-header{
+  width : 100%;
+  
+  }
 #container strong {
   font-size: 20px;
   line-height: 26px;
+}
+
+page-home {
+ 
+  .image-container {
+      min-height: 200px;
+      background-size: cover;
+  }
+
+  @media (min-width: 0px) {
+      .images {
+          column-count: 2;
+      }
+  }
+
+  @media (min-width: 420px) {
+      .images {
+          column-count: 3;
+      }
+  }
+
+  @media (min-width: 720px) {
+      .images {
+          column-count: 4;
+      }
+  }
+
+  .one-image {
+      margin: 2px;
+  }
 }
 
 #container p {
@@ -24,4 +57,57 @@
 
 #container a {
   text-decoration: none;
+}
+
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+ion-card{
+  height: 140px;
+  width: 100%;
+}
+.cadreFave{
+  width: 90%;
+  height: 90%;
+}
+.tras{
+  transform: translate(20px,-10px);
+  font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+  
+  font-size: 0.8em;
+  letter-spacing: 5px;
+  line-height: 0.8em;
+  margin:0px;
+  font-weight:bold;
+  text-transform: uppercase;
+}
+.ButtonP{
+  width: 100px;
+}
+.sizeimg{
+  height: 150px;
+  width: 100%;
+}
+
+.sizeimg2{
+  height: 200px;
+  width: 100%;
+}
+
+.cadreHeader{
+  height: 150px;
+
+}
+.sizeimg{
+  position: relative;
+}
+.Butu{
+  
+  position: absolute;
+  top: 85%;
+  left: 92%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+
 }

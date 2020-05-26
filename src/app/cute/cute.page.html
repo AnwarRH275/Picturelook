@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Cute animals</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-grid fixed>
+  
+    <ion-row >
+      <ion-col size="4" *ngFor="let item of [1,4,9,8,6,7,10,11,5]">
+        <ion-img src="../../assets/img/Cute animals/{{item}}.jpg" (click)="openPicture(item)"></ion-img></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

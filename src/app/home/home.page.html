@@ -1,20 +1,111 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header [translucent]="true" >
+  <ion-toolbar >
+    <!--<ion-title><img class = "logo-header" src="../../assets/img/logo.jpg"></ion-title> -->
+    <ion-item>
+<ion-label>Language</ion-label>
+<ion-select value="brown" ok-text="Okay" cancel-text="Dismiss" (ionChange)="changeLang($event)">
+<ion-select-option *ngFor="let lang of langs" [value]="lang">
+{{ lang }}
+</ion-select-option>
+</ion-select>
+</ion-item>
   </ion-toolbar>
+ 
+ 
+ 
+
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content [fullscreen]="true" color="light">
+  <ion-slides mode="ios" pager="ios" scrollbar="ios" [options]="slideOptsOne">
+    <ion-slide *ngFor="let item of categorie" >
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <ion-card class="cadreHeader">
+          <img class="sizeimg2" src="../../assets/img/{{item}}/2.jpg" >
+        </ion-card>
+       
+        
+    </ion-slide>
+   
+    
+  </ion-slides>
+
+   
+  <ion-segment [(ngModel)]="galleryType" color="primary" >
+    <ion-segment-button value="Gallery">
+    
+    <h5 class="tras" #title2 *ngIf="lang=='Chinese'">  画廊 </h5>
+    
+    <h5 class="tras" #title2 *ngIf="lang=='English'">Gallery
+    </h5>
+
+    </ion-segment-button>
+  
+    <ion-segment-button value="Favorite">
+      <h5 class="tras" #title2 *ngIf="lang=='Chinese'">  喜爱 </h5>
+    
+      <h5 class="tras" #title2 *ngIf="lang=='English'">Favorites
+      </h5>
+  
+
+    </ion-segment-button>
+    
+
+  </ion-segment>
+ 
+
+  <div [ngSwitch]="galleryType">
+    <!-- Responsive Layout with Ion Grid-->
+    <div class="images" *ngSwitchCase="'Gallery'" >
+      <div class="one-image" >
+     <div *ngFor="let item of Hero3" >   
+      <ion-slides mode="ios" pager="ios" scrollbar="ios">
+        <ion-slide *ngFor="let image of [1,2,3]" >
+
+            <ion-card>
+              <img class="sizeimg" src="../../assets/img/{{item.name}}/{{image}}.jpg" >
+              <ion-button fill="clear"  ionBlur class="Butu" color="light" (click)="GoCategorie(item.name)">
+                <ion-icon slot="icon-only" name="add-circle-sharp"></ion-icon>
+              </ion-button>
+            </ion-card>
+           
+            
+        </ion-slide>
+       
+      </ion-slides>
+ 
+       
+      
+      <ion-row class="Traslat">
+       
+        <ion-col size="12">
+          <h3 class="tras" #title2 *ngIf="lang=='Chinese'">{{item.china}}</h3>
+          <h3 class="tras" #title2 *ngIf="lang=='English'">{{item.english}}</h3>
+          
+        </ion-col>
+        
+      </ion-row>
+     
+      
+    </div>
+    
+            </div>
+    </div>
+   
+    <ion-grid *ngSwitchCase="'Favorite'">
+         
+      <ion-list>
+        <ion-item *ngFor="let favorie of favories">
+          <img class="sizeimg" src="../../assets/img/{{ favorie.categorie }}/{{ favorie.numbre }}.jpg" >   
+        </ion-item>
+        
+      </ion-list>
+       
+    </ion-grid>
+ 
+ 
+   
+ 
   </div>
-</ion-content>
+
+ </ion-content>

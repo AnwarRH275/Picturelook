@@ -97,6 +97,19 @@
       <ion-list>
         <ion-item *ngFor="let favorie of favories">
           <img class="sizeimg" src="../../assets/img/{{ favorie.categorie }}/{{ favorie.numbre }}.jpg" >   
+          <ion-button fill="clear"  ionBlur class="Butu2" color="light" (click)="save(favorie.categorie,favorie.numbre)">
+            <ion-icon slot="icon-only" name="cloud-download-outline"></ion-icon>
+          </ion-button>
+          
+          <ion-button fill="clear"  ionBlur class="Butu3" color="light" (click)="delete(favorie.categorie,favorie.numbre)">
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-button>
+
+          <p  class="Butu5" >{{ favorie.citation }}</p>
+          <ion-button fill="clear"  ionBlur class="Butu4" color="light" (click)="edit(favorie.categorie,favorie.numbre)">
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-button>
+
         </ion-item>
         
       </ion-list>

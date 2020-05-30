@@ -1,11 +1,12 @@
+import { Favorie } from './../models/favorie.page';
 import { FavorieService } from './../services/favorie.service';
 import { Component, OnInit } from '@angular/core';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController, ToastController, AlertController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { PicturePage } from '../picture/picture.page';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
-import { Favorie } from '../models/favorie.page';
+
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -20,7 +21,12 @@ export class HomePage implements OnInit{
   
   favories:Favorie[];
   favorieSubscription : Subscription;
-
+  editF:Favorie = {
+    categorie: '',
+    numbre : '',
+    citation:""
+  } ;
+  citation : String;
 
   categorie:string[] = ['china','Cute animals','Nature','portrait'];
  
@@ -44,7 +50,8 @@ export class HomePage implements OnInit{
      private translate: TranslateService,
     private router:Router,
     private toastCtrl: ToastController,
-    private favorieService:FavorieService
+    private favorieService:FavorieService,
+   private  alertController:AlertController
     ) {
 
       this.translate.setDefaultLang('English');
@@ -80,4 +87,69 @@ export class HomePage implements OnInit{
         }
       
     }
+    save(categorie,numbre){
+      const base64 = `../../assets/img/${categorie}/${numbre}.jpg`;
+
+      this.downloadBase64File(base64);
+    }
+    downloadBase64File(base64) {
+      const linkSource = `${base64}`;
+      const downloadLink = document.createElement('a');
+      document.body.appendChild(downloadLink);
+   
+      downloadLink.href = linkSource;
+      downloadLink.target = '_self';
+      downloadLink.download = 'test.png';
+      downloadLink.click();
+    }
+
+    async delete(categorie,numbre){
+      this.editF.categorie = categorie;
+      this.editF.numbre = numbre;
+      console.log(categorie);
+      this.favorieService.deleteFavorie(this.editF);
+      
+      
+    }
+    edit(categorie,numbre){
+
+      this.editF.categorie = categorie;
+      this.editF.numbre = numbre;
+     
+      this.presentAlertPrompt();
+      console.log(this.citation);
+      
+
+
+    }
+
+    async presentAlertPrompt() {
+      const alert = await this.alertController.create({
+        cssClass: 'my-custom-class',
+        header: 'Enter Your Quote',
+        inputs: [
+          {
+            name: 'name1',
+            type: 'text'
+          }],    
+         buttons: [
+              {
+                text: 'Cancel',
+                role: 'cancel',
+                cssClass: 'secondary',
+                handler: () => {
+                  console.log('Confirm Cancel');
+                }
+              }, {
+                text: 'Ok',
+                handler: (alertData) => { //takes the data 
+                  console.log(alertData.name1);
+                  this.citation=alertData;
+                  this.favorieService.editFavorie(this.editF,alertData.name1);
+              }
+              }
+            ]
+    });
+    await alert.present();
+  }
 }

@@ -1,6 +1,6 @@
 import { Favorie } from './../models/favorie.page';
 import { FavorieService } from './../services/favorie.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NavController, ToastController, AlertController } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { PicturePage } from '../picture/picture.page';
@@ -18,7 +18,7 @@ export class HomePage implements OnInit{
   langs: string[] = ['English','Chinese'];
   lang: string = 'English';
   
-  
+
   favories:Favorie[];
   favorieSubscription : Subscription;
   editF:Favorie = {
@@ -89,7 +89,9 @@ export class HomePage implements OnInit{
     }
     save(categorie,numbre){
       const base64 = `../../assets/img/${categorie}/${numbre}.jpg`;
-
+      var img = new Image();
+      img.src = base64;
+      
       this.downloadBase64File(base64);
     }
     downloadBase64File(base64) {

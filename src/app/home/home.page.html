@@ -1,13 +1,23 @@
 <ion-header [translucent]="true" >
   <ion-toolbar >
     <!--<ion-title><img class = "logo-header" src="../../assets/img/logo.jpg"></ion-title> -->
-    <ion-item>
-<ion-label>Language</ion-label>
-<ion-select value="brown" ok-text="Okay" cancel-text="Dismiss" (ionChange)="changeLang($event)">
-<ion-select-option *ngFor="let lang of langs" [value]="lang">
-{{ lang }}
-</ion-select-option>
-</ion-select>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+   <ion-item slot="end" class="itemLang">
+     
+   
+  <ion-label>
+    <ion-icon  name="language" color="primary" ></ion-icon>
+    
+    </ion-label>  
+    
+    <ion-select value="brown" ok-text="Okay" cancel-text="Dismiss" (ionChange)="changeLang($event)" >
+      <ion-select-option *ngFor="let lang of langs" [value]="lang">
+        {{ lang }}
+    </ion-select-option>
+
+  </ion-select>
 </ion-item>
   </ion-toolbar>
  
@@ -95,8 +105,10 @@
     <ion-grid *ngSwitchCase="'Favorite'">
          
       <ion-list>
-        <ion-item *ngFor="let favorie of favories">
-          <img class="sizeimg" src="../../assets/img/{{ favorie.categorie }}/{{ favorie.numbre }}.jpg" >   
+        <ion-item *ngFor="let favorie of favories" >
+         
+          <img class="sizeimg" src="../../assets/img/{{ favorie.categorie }}/{{ favorie.numbre }}.jpg" > 
+          
           <ion-button fill="clear"  ionBlur class="Butu2" color="light" (click)="save(favorie.categorie,favorie.numbre)">
             <ion-icon slot="icon-only" name="cloud-download-outline"></ion-icon>
           </ion-button>

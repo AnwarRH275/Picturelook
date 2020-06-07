@@ -1,0 +1,170 @@
+#container {
+    text-align: center;
+  
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .logo-header{
+    width : 100%;
+    
+    }
+  #container strong {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  
+  page-home {
+   
+    .image-container {
+        min-height: 200px;
+        background-size: cover;
+    }
+  
+    @media (min-width: 0px) {
+        .images {
+            column-count: 2;
+        }
+    }
+  
+    @media (min-width: 420px) {
+        .images {
+            column-count: 3;
+        }
+    }
+  
+    @media (min-width: 720px) {
+        .images {
+            column-count: 4;
+        }
+    }
+  
+    .one-image {
+        margin: 2px;
+    }
+  }
+  
+  #container p {
+    font-size: 16px;
+    line-height: 22px;
+  
+    color: #8c8c8c;
+  
+    margin: 0;
+  }
+  
+  #container a {
+    text-decoration: none;
+  }
+  
+  ion-content ion-toolbar {
+    --background: translucent;
+  }
+  
+  ion-card{
+    height: 140px;
+    width: 100%;
+  }
+  .cadreFave{
+    width: 90%;
+    height: 90%;
+  }
+  .tras{
+    transform: translate(20px,-10px);
+    font-family:  'Hoefler Text', Georgia, 'Times New Roman', serif;
+    
+    font-size: 0.8em;
+    letter-spacing: 5px;
+    line-height: 0.8em;
+    margin:0px;
+    font-weight:bold;
+    text-transform: uppercase;
+  }
+  .ButtonP{
+    width: 100px;
+  }
+  .sizeimg{
+    height: 150px;
+    width: 100%;
+  }
+  .cadreimg{
+    height: 80px;
+    
+  }
+  ion-row{
+      margin-top: 0px;
+      transform: translateX(-10px);
+  }
+
+  .sizeimg2{
+    height: 200px;
+    width: 100%;
+  }
+  
+  .cadreHeader{
+    height: 150px;
+  
+  }
+  .sizeimg{
+    position: relative;
+  }
+  .Butu{
+    
+    position: absolute;
+    top: 85%;
+    left: 92%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  
+  }
+  
+  .Butu2{
+    
+    position: absolute;
+    top: 85%;
+    left: 88%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  
+  }
+  .Butu3{
+    
+    position: absolute;
+    top: 85%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  
+  }
+  
+  
+  .Butu4{
+    
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  
+  }
+  
+  .my-custom-class {
+    --background: #e5e5e5;
+  }
+  .imagecadre{
+    filter: brightness(50%);
+    -webkit-filter: brightness(50%);
+  }
+  .Butu5{
+    
+    position: absolute;
+    color: white;
+   
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  
+  }

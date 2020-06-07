@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>categorie</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+
+<ion-grid fixed>
+  <ion-row >
+    <ion-col size="6" *ngFor="let item of Hero3">
+      <ion-card class="cadreimg">    
+        <img class="imagecadre" src="../../assets/img/{{item.name}}/1.jpg" (click)="GoCategorie(item.name)">
+        <h3 class="Butu5" #title2 *ngIf="lang=='Chinese'">{{item.china}}</h3>
+        <h3 class="Butu5" #title2 *ngIf="lang=='English'">{{item.english}}</h3>
+      </ion-card>
+      </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+</ion-content>
